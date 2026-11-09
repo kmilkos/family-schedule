@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-hover-border: #cbd5e1;
+  --brand-primary: #4f46e5;
+  --brand-worker: #0284c7;
+  --brand-student: #059669;
+  --brand-activity: #d97706;
+}
+
+:root.dark, .dark {
+  color-scheme: dark;
+  --background: #080c14;
+  --foreground: #f8fafc;
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
+  --card-hover-border: #334155;
+  --brand-primary: #6366f1;
+  --brand-worker: #0ea5e9;
+  --brand-student: #10b981;
+  --brand-activity: #f59e0b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print utility classes */
+.print-only {
+  display: none !important;
+}
+
+/* Print styles for printing the schedule to stick on the fridge */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 5mm 5mm;
+  }
+
+  header, nav, footer, button, .no-print, .print-hidden {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  tr.print-only {
+    display: table-row !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Clean white paper base */
+  html, body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Reset outer application containers on paper & prevent overflow to extra page */
+  #root,
+  #root > div,
+  main,
+  .min-h-screen {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Avoid page break inside table or after table */
+  table {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Convert dark surfaces so they print crisp on white paper */
+  .dark {
+    color-scheme: light !important;
+  }
+
+  .dark [class*="bg-slate-900"],
+  .dark [class*="bg-slate-950"],
+  .dark [class*="bg-slate-800"] {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .dark [class*="text-slate-100"],
+  .dark [class*="text-slate-200"],
+  .dark [class*="text-slate-300"],
+  .dark [class*="text-white"] {
+    color: #0f172a !important;
+  }
+
+  .dark [class*="text-slate-400"],
+  .dark [class*="text-slate-500"] {
+    color: #475569 !important;
+  }
+
+  /* Card and table borders on paper */
+  .border,
+  [class*="border-slate-"] {
+    border-color: #cbd5e1 !important;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  td {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Soft card backgrounds on paper */
+  .dark .bg-blue-50,
+  .dark [class*="bg-blue-950"] {
+    background-color: #eff6ff !important;
+    border-color: #bfdbfe !important;
+  }
+
+  .dark .bg-emerald-50,
+  .dark [class*="bg-emerald-950"] {
+    background-color: #ecfdf5 !important;
+    border-color: #a7f3d0 !important;
+  }
+
+  .dark .bg-amber-50,
+  .dark [class*="bg-amber-950"] {
+    background-color: #fffbeb !important;
+    border-color: #fde68a !important;
+  }
+
+  .dark .bg-purple-50,
+  .dark [class*="bg-purple-950"] {
+    background-color: #faf5ff !important;
+    border-color: #e9d5ff !important;
+  }
+
+  .dark .bg-teal-50,
+  .dark [class*="bg-teal-950"] {
+    background-color: #f0fdfa !important;
+    border-color: #99f6e4 !important;
+  }
+
+  .dark [class*="bg-slate-50"],
+  .dark [class*="bg-slate-100"] {
+    background-color: #f8fafc !important;
+  }
+
+  /* Full print visibility and no clipping */
+  .overflow-x-auto,
+  .overflow-y-auto {
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

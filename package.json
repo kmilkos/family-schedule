@@ -1,0 +1,36 @@
+{
+  "name": "family-schedule",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Unified family work & school schedule management with multi-user support, custom calendars, and SQLite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "bun server.ts",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}
