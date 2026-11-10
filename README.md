@@ -1,3 +1,7 @@
+<p align="right">
+  <strong><a href="README.en.md">🇬🇧 English</a></strong> | <strong>🇬🇷 Ελληνικά</strong>
+</p>
+
 # 🏠 Family Schedule
 
 > **Ένα σύγχρονο, αυτόνομο και ενοποιημένο σύστημα οικογενειακού προγραμματισμού με διαχείριση χρηστών, πολλαπλά ημερολόγια, υποστήριξη όλων των μορφών εργασίας, σχολικό ωρολόγιο και έξυπνο βοηθό μετακινήσεων.**
@@ -172,7 +176,8 @@ family-schedule/
 ├── server.ts                  # SQLite backend server
 ├── tsconfig.json
 ├── vite.config.ts
-└── README.md
+├── README.md                  # Ελληνική τεκμηρίωση
+└── README.en.md               # English documentation
 ```
 
 ---
